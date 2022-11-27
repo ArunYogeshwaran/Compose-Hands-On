@@ -50,7 +50,7 @@ fun Greeting(name: String) {
     showBackground = true,
     uiMode = UI_MODE_NIGHT_YES,
     widthDp = 200,
-    group = "TextView",
+    group = "Default",
     showSystemUi = true,
     device = Devices.PIXEL_C,
     backgroundColor = 0x989a82,
@@ -58,6 +58,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     ComposeHandsOnTheme {
-        Greeting("Android")
+        MyApp()
     }
 }
