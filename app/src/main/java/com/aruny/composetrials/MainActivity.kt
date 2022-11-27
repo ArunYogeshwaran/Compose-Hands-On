@@ -1,5 +1,6 @@
 package com.aruny.composetrials
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -9,6 +10,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import com.aruny.composetrials.ui.theme.ComposeHandsOnTheme
 
@@ -34,7 +36,16 @@ fun Greeting(name: String) {
     Text(text = "Hello $name!")
 }
 
-@Preview(showBackground = true)
+@Preview(
+    name = "My Preview",
+    showBackground = true,
+    uiMode = UI_MODE_NIGHT_YES,
+    widthDp = 200,
+    group = "TextView",
+    showSystemUi = true,
+    device = Devices.PIXEL_C,
+    backgroundColor = 0x989a82,
+)
 @Composable
 fun DefaultPreview() {
     ComposeHandsOnTheme {
