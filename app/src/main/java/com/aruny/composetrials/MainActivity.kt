@@ -1,11 +1,10 @@
 package com.aruny.composetrials
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -22,27 +21,41 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeHandsOnTheme {
-                MyApp(modifier = Modifier.fillMaxSize())
+                MyApp(modifier = Modifier.fillMaxWidth())
             }
         }
     }
 }
 
 @Composable
-private fun MyApp(modifier: Modifier = Modifier) {
+private fun MyApp(
+    modifier: Modifier = Modifier,
+    names: List<String> = listOf("Android", "Compose")
+) {
     // A surface container using the 'background' color from the theme
     Surface(
         modifier = modifier,
-        color = MaterialTheme.colorScheme.background
+        color = MaterialTheme.colorScheme.surface
     ) {
-        Greeting("Android")
+        Column(modifier) {
+            for (name in names) {
+                Greeting(name)
+            }
+        }
     }
 }
 
 @Composable
 fun Greeting(name: String) {
-    Surface(color = MaterialTheme.colorScheme.primary) {
-        Column(modifier = Modifier.padding(24.dp)) {
+    Surface(
+        color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(24.dp)
+        ) {
             Text(text = "Hello")
             Text(text = "$name!")
         }
@@ -52,8 +65,7 @@ fun Greeting(name: String) {
 @Preview(
     name = "My Preview",
     showBackground = true,
-    uiMode = UI_MODE_NIGHT_YES,
-    widthDp = 200,
+    widthDp = 320,
     group = "Default",
     showSystemUi = true,
     device = Devices.PIXEL_C,
