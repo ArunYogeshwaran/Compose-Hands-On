@@ -90,8 +90,8 @@ fun Greeting(name: String) {
     val extraPadding by animateDpAsState(
         targetValue = if (expanded.value) 48.dp else 0.dp,
         animationSpec = spring(
-            dampingRatio = Spring.DampingRatioMediumBouncy,
-            stiffness = Spring.StiffnessLow
+            dampingRatio = Spring.DampingRatioHighBouncy,
+            stiffness = Spring.StiffnessVeryLow
         )
     )
 
