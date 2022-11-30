@@ -3,9 +3,8 @@ package com.aruny.composetrials
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -51,13 +50,16 @@ fun Greeting(name: String) {
         color = MaterialTheme.colorScheme.primary,
         modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
     ) {
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(24.dp)
-        ) {
-            Text(text = "Hello")
-            Text(text = "$name!")
+        Row(modifier = Modifier.padding(24.dp)) {
+            Column(
+                modifier = Modifier.weight(1f)
+            ) {
+                Text(text = "Hello")
+                Text(text = "$name!")
+            }
+            ElevatedButton(onClick = { /*TODO*/ }) {
+                Text("Show more")
+            }
         }
     }
 }
