@@ -61,14 +61,6 @@ fun OnboardingScreen(modifier: Modifier = Modifier, onContinueClicked: () -> Uni
     }
 }
 
-@Preview(showBackground = true, widthDp = 320, heightDp = 320)
-@Composable
-fun OnboardingPreview() {
-    ComposeHandsOnTheme {
-        OnboardingScreen(onContinueClicked = {})
-    }
-}
-
 @Composable
 private fun Greetings(
     modifier: Modifier = Modifier,
@@ -108,6 +100,22 @@ fun Greeting(name: String) {
     }
 }
 
+@Preview
+@Composable
+fun MyAppPreview() {
+    ComposeHandsOnTheme {
+        MyApp(Modifier.fillMaxSize())
+    }
+}
+
+@Preview(showBackground = true, widthDp = 320, heightDp = 320)
+@Composable
+fun OnboardingPreview() {
+    ComposeHandsOnTheme {
+        OnboardingScreen(onContinueClicked = {})
+    }
+}
+
 @Preview(
     name = "My Preview",
     showBackground = true,
@@ -120,6 +128,6 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     ComposeHandsOnTheme {
-        MyApp()
+        Greetings()
     }
 }
