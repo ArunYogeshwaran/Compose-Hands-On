@@ -42,8 +42,7 @@ private fun MyApp(
     var shouldShowOnboarding by rememberSaveable { mutableStateOf(true) }
     // A surface container using the 'background' color from the theme
     Surface(
-        modifier = modifier,
-        color = MaterialTheme.colorScheme.surface
+        modifier = modifier
     ) {
         if (shouldShowOnboarding) {
             OnboardingScreen(onContinueClicked = {
@@ -108,9 +107,11 @@ fun Greeting(name: String) {
                     .padding(bottom = extraPadding.coerceAtLeast(0.dp))
             ) {
                 Text(text = "Hello")
-                Text(text = "$name!", style = MaterialTheme.typography.headlineMedium.copy(
-                    fontWeight = FontWeight.ExtraBold
-                ))
+                Text(
+                    text = "$name!", style = MaterialTheme.typography.headlineMedium.copy(
+                        fontWeight = FontWeight.ExtraBold
+                    )
+                )
             }
             ElevatedButton(
                 onClick = { expanded.value = !expanded.value }
